@@ -50,8 +50,7 @@ COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
 # Set permissions for Laravel
-RUN addgroup -g 1000 www-data && adduser -D -G www-data -u 1000 www-data \
-    && chown -R www-data:www-data /var/www \
+RUN chown -R www-data:www-data /var/www \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 USER www-data
