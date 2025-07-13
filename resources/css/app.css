@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+/* ========================================
+   CRITICAL FIX: Calendar & Modal Text Readability
+   ======================================== */
+
+/* FullCalendar Global Text Fix */
+.fc {
+    color: #1f2937 !important; /* Dark gray text */
+}
+
+/* Comprehensive FullCalendar text fixes */
+.fc *,
+.fc-view,
+.fc-view *,
+.fc-daygrid,
+.fc-daygrid *,
+.fc-timegrid,
+.fc-timegrid *,
+.fc-col-header,
+.fc-col-header *,
+.fc-scrollgrid,
+.fc-scrollgrid * {
+    color: #1f2937 !important;
+}
+
+/* Override any white text specifically */
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number,
+.fc .fc-timegrid-slot-label-cushion {
+    color: #1f2937 !important;
+}
+
+/* FullCalendar Header Elements */
+.fc-toolbar-title,
+.fc-button,
+.fc-button-primary,
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-number,
+.fc-timegrid-slot-label-cushion,
+.fc-scrollgrid-sync-table {
+    color: #1f2937 !important;
+}
+
+/* FullCalendar Day Headers */
+.fc-col-header-cell,
+.fc-col-header-cell-cushion {
+    color: #374151 !important;
+    font-weight: 600;
+}
+
+/* FullCalendar Time Slots */
+.fc-timegrid-slot-label,
+.fc-timegrid-slot-label-cushion {
+    color: #6b7280 !important;
+}
+
+/* FullCalendar Day Numbers */
+.fc-daygrid-day-number {
+    color: #1f2937 !important;
+    font-weight: 500;
+}
+
+/* FullCalendar Month View Specific Fixes */
+.fc-daygrid-day-top,
+.fc-daygrid-day-frame,
+.fc-daygrid-day {
+    color: #1f2937 !important;
+}
+
+/* Day of week headers in month view */
+.fc-col-header-cell,
+.fc-col-header-cell a {
+    color: #374151 !important;
+    font-weight: 600;
+}
+
+/* Day numbers in month view */
+.fc-daygrid-day-number,
+.fc-daygrid-day-number a {
+    color: #1f2937 !important;
+    text-decoration: none;
+}
+
+/* Month view grid lines and structure */
+.fc-daygrid-day-events,
+.fc-daygrid-event-harness,
+.fc-daygrid-day-bg {
+    color: #1f2937 !important;
+}
+
+/* Ensure all month view text is visible */
+.fc-dayGridMonth-view,
+.fc-dayGridMonth-view * {
+    color: #1f2937 !important;
+}
+
+/* Fix for "more" link in month view */
+.fc-daygrid-more-link {
+    color: #4f46e5 !important;
+}
+
+/* Today highlight in month view */
+.fc-day-today {
+    background-color: rgba(79, 70, 229, 0.1) !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+    color: #4f46e5 !important;
+    font-weight: 700;
+}
+
+/* FullCalendar Buttons */
+.fc-button {
+    color: #ffffff !important;
+    background-color: #4f46e5 !important;
+    border-color: #4f46e5 !important;
+}
+
+.fc-button:hover {
+    background-color: #4338ca !important;
+    border-color: #4338ca !important;
+}
+
+.fc-button:disabled {
+    color: #9ca3af !important;
+    background-color: #f3f4f6 !important;
+    border-color: #d1d5db !important;
+}
+
+/* FullCalendar Event Text - Ensure readability */
+.fc-event {
+    color: #ffffff !important; /* White text on colored backgrounds */
+}
+
+.fc-event-title,
+.fc-event-time {
+    color: inherit !important;
+}
+
+/* Modal Content Text Fix */
+.modal-content,
+.modal-content * {
+    color: #1f2937 !important;
+}
+
+/* Filament Modal Fix */
+[x-data] .bg-white,
+.bg-white {
+    color: #1f2937 !important;
+}
+
+/* Livewire Modal Text Fix */
+.livewire-modal,
+.livewire-modal * {
+    color: #1f2937 !important;
+}
+
+/* Admin Booking Details Modal Specific Fix */
+.admin-booking-modal,
+.admin-booking-modal * {
+    color: #1f2937 !important;
+}
+
+/* Generic Dark Text Enforcement */
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Ensure form inputs have dark text */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    color: #1f2937 !important;
+}
+
+/* Placeholder text */
+::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Labels and headings */
+h1, h2, h3, h4, h5, h6,
+label,
+.font-medium,
+.font-semibold,
+.font-bold {
+    color: #1f2937 !important;
+}
+
+/* Paragraph text */
+p {
+    color: #374151 !important;
+}
+
+/* Link text */
+a:not(.fc-button) {
+    color: #4f46e5 !important;
+}
+
+a:not(.fc-button):hover {
+    color: #4338ca !important;
+}
+
+/* Status badges - preserve their colors but ensure readability */
+.bg-yellow-100 {
+    color: #92400e !important;
+}
+
+.bg-green-100 {
+    color: #065f46 !important;
+}
+
+.bg-red-100 {
+    color: #991b1b !important;
+}
+
+.bg-blue-100 {
+    color: #1e40af !important;
+}
+
+.bg-gray-100 {
+    color: #374151 !important;
+}
+
+/* Additional Filament-specific fixes */
+.fi-page,
+.fi-section,
+.fi-widget,
+.fi-dashboard-widget {
+    color: #1f2937 !important;
+}
+
+.fi-page * {
+    color: inherit !important;
+}
+
+/* Ensure calendar container has proper text color */
+#calendar {
+    color: #1f2937 !important;
+}
+
+#calendar * {
+    color: inherit !important;
+}
+
+/* Fix for any remaining white text issues */
+body {
+    color: #1f2937 !important;
+}
+
+/* Override any global white text rules */
+* {
+    color: inherit !important;
+}
+
+.text-white,
+[class*="text-white"] {
+    color: #ffffff !important;
+}
+
+/* NUCLEAR OPTION: Force all FullCalendar text to be visible */
+#calendar,
+#calendar *,
+#calendar .fc,
+#calendar .fc *,
+#calendar .fc-view,
+#calendar .fc-view *,
+#calendar .fc-col-header,
+#calendar .fc-col-header *,
+#calendar .fc-daygrid,
+#calendar .fc-daygrid *,
+#calendar .fc-daygrid-day,
+#calendar .fc-daygrid-day *,
+#calendar .fc-daygrid-day-number,
+#calendar .fc-col-header-cell,
+#calendar .fc-col-header-cell-cushion,
+#calendar .fc-scrollgrid,
+#calendar .fc-scrollgrid * {
+    color: #000000 !important;
+    text-shadow: none !important;
+}
+
+/* Force visibility with black text */
+div#calendar * {
+    color: #000000 !important;
+}
+
+/* Backup with inline style approach */
+.calendar-text-fix {
+    color: #000000 !important;
+}
+
+.calendar-text-fix * {
+    color: #000000 !important;
+}
+
+/* MODAL TEXT VISIBILITY FIXES */
+.fixed.inset-0,
+.fixed.inset-0 *,
+.bg-gray-900.bg-opacity-75,
+.bg-gray-900.bg-opacity-75 *,
+.bg-white.rounded-lg,
+.bg-white.rounded-lg *,
+.admin-booking-modal,
+.admin-booking-modal *,
+[x-data],
+[x-data] *,
+.modal,
+.modal *,
+div[class*="fixed"],
+div[class*="fixed"] * {
+    color: #000000 !important;
+}
+
+/* Force all modal content to be black */
+.fixed .bg-white * {
+    color: #000000 !important;
+}
+
+/* Specific modal selectors */
+.relative.bg-white * {
+    color: #000000 !important;
+}
+
+/* Headers and labels in modals */
+h3, h4, h5, h6,
+label,
+span,
+p,
+div {
+    color: #000000 !important;
+}
+
+/* Button text should remain readable */
+button {
+    color: inherit !important;
+}
+
+/* Form elements */
+input, select, textarea {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
