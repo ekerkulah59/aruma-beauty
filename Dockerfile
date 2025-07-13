@@ -1,21 +1,12 @@
-# Stage 1: Build assets and vendor
-FROM composer:2.5 AS vendor
-WORKDIR /app
-COPY composer.json composer.lock ./
-RUN composer install --no-dev --prefer-dist --optimize-autoloader
-
-FROM node:20 AS node_modules
+# Stage 1: Build JS assets
+FROM node:20 AS assets
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
-
-FROM node:20 AS assets
-WORKDIR /app
-COPY --from=node_modules /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
-# Stage 2: Production image
+# Stage 2: Production PHP image
 FROM php:8.2-fpm-alpine
 
 # Install system dependencies
@@ -45,20 +36,18 @@ RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd
 # Set working directory
 WORKDIR /var/www
 
-# Copy built vendor and assets from previous stages
-COPY --from=vendor /app/vendor ./vendor
+# Copy application code
+COPY . .
+
+# Copy built assets from previous stage
 COPY --from=assets /app/public ./public
-COPY --from=assets /app/resources ./resources
-COPY --from=assets /app/bootstrap ./bootstrap
-COPY --from=assets /app/database ./database
-COPY --from=assets /app/routes ./routes
-COPY --from=assets /app/app ./app
-COPY --from=assets /app/config ./config
-COPY --from=assets /app/artisan ./artisan
-COPY --from=assets /app/composer.json ./composer.json
-COPY --from=assets /app/composer.lock ./composer.lock
-COPY --from=assets /app/package.json ./package.json
-COPY --from=assets /app/package-lock.json ./package-lock.json
+COPY --from=assets /app/node_modules ./node_modules
+
+# Install Composer
+COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
+
+# Install PHP dependencies
+RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
 # Set permissions for Laravel
 RUN addgroup -g 1000 www-data && adduser -D -G www-data -u 1000 www-data \
