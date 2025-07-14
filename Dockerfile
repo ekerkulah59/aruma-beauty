@@ -40,8 +40,8 @@ WORKDIR /var/www
 COPY . .
 
 # Copy built assets from previous stage
-COPY --from=assets /app/public ./public
-COPY --from=assets /app/node_modules ./node_modules
+COPY --from=assets /app/public/build ./public/build
+COPY --from=assets /app/public/manifest.json ./public/manifest.json
 
 # Install Composer
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
