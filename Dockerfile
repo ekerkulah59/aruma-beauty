@@ -41,7 +41,7 @@ COPY . .
 
 # Copy built assets from previous stage
 COPY --from=assets /app/public/build ./public/build
-COPY --from=assets /app/public/manifest.json ./public/manifest.json
+COPY --from=assets /app/public/build/manifest.json ./public/build/manifest.json
 
 # Install Composer
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
